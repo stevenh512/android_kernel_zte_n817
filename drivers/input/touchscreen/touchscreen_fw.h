@@ -1,0 +1,260 @@
+#ifndef 	__TOUCHSCREEN_FW__
+#define 	__TOUCHSCREEN_FW__
+
+#ifdef CONFIG_BOARD_ADA
+#define SYN_LAIBAO_FW_NAME	        "ZTE-T83-Laibao-s2202-DS4.3.2.1.35_32373033.img"
+#define SYN_GOWORLD_FW_NAME	"P821T02_PR1380113_S2202_Goworld_32413032.img"
+#define SYN_SUCCESS_FW_NAME	"ZTE_T83_Success_PR1380113-s2202_32333036.img"
+#elif defined (CONFIG_BOARD_DEMI)||defined (CONFIG_BOARD_FAUN)
+#define SYN_GOWORLD_FW_NAME "Goworld_P821A16_PR1524109-s2331_44413036.img"
+#define GTP_SENSOR_ID_1_FW_NAME "GT968_106C.BIN"
+#elif defined (CONFIG_BOARD_EOS)
+#define FTC_AVC_FW_NAME	"Ver0C_V72_10P_ID0x8e_20140108_app.bin"
+#elif defined (CONFIG_BOARD_APUS)
+#define SYN_JUNDA_FW_NAME	"ZTE_P682A10_PR1510935-s3202_DS3.6.0_Junda_34453046.img"
+#elif defined (CONFIG_BOARD_GIANT)
+#define FTC_OFILM_FW_NAME	"Ver11_ZTEMT_Z791_FT5436i_0x51_20150324_app.bin"
+#define FTC_SUCCESS_FW_NAME	"FT5436I_ZTEMT_Z793c_0x5f_Clb_Ref_V0x19_20150424_app.bin"
+#elif defined (CONFIG_BOARD_HERA)
+#define FTC_SUCCESS_FW_NAME	"FT5436I_ZTEMT_Z793c_0x5f_Clb_Ref_V0x19_20150424_app.bin"
+#elif defined(CONFIG_BOARD_EROS)||defined(CONFIG_BOARD_FAERIE)
+#define GTP_SENSOR_ID_1_FW_NAME		"GT9147_1073_CC9F.BIN"
+#define GTP_SENSOR_ID_2_FW_NAME		"GT9147_1073_CC9F.BIN"
+#define GTP_SENSOR_ID_3_FW_NAME		"GT9147_1073_CC9F.BIN"
+#else
+#define SYN_TPK_FW_NAME		""
+#define SYN_TURLY_FW_NAME	"" 
+#define SYN_SUCCESS_FW_NAME	""
+#define SYN_OFILM_FW_NAME	""
+#define SYN_LEAD_FW_NAME	""
+#define SYN_WINTEK_FW_NAME	""
+#define SYN_LAIBAO_FW_NAME	""
+#define SYN_CMI_FW_NAME		""
+#define SYN_ECW_FW_NAME		""
+#define SYN_GOWORLD_FW_NAME	""
+#define SYN_BAOMING_FW_NAME	""
+#define SYN_JUNDA_FW_NAME	""
+#define SYN_JIAGUAN_FW_NAME	""
+#define SYN_MUDONG_FW_NAME	"" 
+#define SYN_EACHOPTO_FW_NAME	"" 
+
+#define FTC_TPK_FW_NAME		""
+#define FTC_TURLY_FW_NAME	"" 
+#define FTC_SUCCESS_FW_NAME	""
+#define FTC_OFILM_FW_NAME	""
+#define FTC_LEAD_FW_NAME	""
+#define FTC_WINTEK_FW_NAME	""
+#define FTC_LAIBAO_FW_NAME	""
+#define FTC_CMI_FW_NAME		""
+#define FTC_ECW_FW_NAME		""
+#define FTC_GOWORLD_FW_NAME	""
+#define FTC_BAOMING_FW_NAME	""
+#define FTC_JUNDA_FW_NAME	""
+#define FTC_JIAGUAN_FW_NAME	""
+#define FTC_MUDONG_FW_NAME	""
+#define FTC_EACHOPTO_FW_NAME	"" 
+#define FTC_AVC_FW_NAME	""
+
+#define GTP_SENSOR_ID_1_FW_NAME		""
+#define GTP_SENSOR_ID_2_FW_NAME		""
+#define GTP_SENSOR_ID_3_FW_NAME		""
+#define GTP_SENSOR_ID_4_FW_NAME		""
+#define GTP_SENSOR_ID_5_FW_NAME		""
+#define GTP_SENSOR_ID_6_FW_NAME		""
+
+#endif
+
+#ifndef SYN_TPK_FW_NAME
+#define SYN_TPK_FW_NAME		""
+#endif
+#ifndef SYN_TURLY_FW_NAME
+#define SYN_TURLY_FW_NAME	"" 
+#endif
+#ifndef SYN_SUCCESS_FW_NAME
+#define SYN_SUCCESS_FW_NAME	"" 
+#endif
+#ifndef SYN_OFILM_FW_NAME
+#define SYN_OFILM_FW_NAME	"" 
+#endif
+#ifndef SYN_LEAD_FW_NAME
+#define SYN_LEAD_FW_NAME	"" 
+#endif
+#ifndef SYN_WINTEK_FW_NAME
+#define SYN_WINTEK_FW_NAME	"" 
+#endif
+#ifndef SYN_LAIBAO_FW_NAME
+#define SYN_LAIBAO_FW_NAME	"" 
+#endif
+#ifndef SYN_CMI_FW_NAME
+#define SYN_CMI_FW_NAME		"" 
+#endif
+#ifndef SYN_ECW_FW_NAME
+#define SYN_ECW_FW_NAME		"" 
+#endif
+#ifndef SYN_GOWORLD_FW_NAME
+#define SYN_GOWORLD_FW_NAME	"" 
+#endif
+#ifndef SYN_BAOMING_FW_NAME
+#define SYN_BAOMING_FW_NAME	"" 
+#endif
+#ifndef SYN_JUNDA_FW_NAME
+#define SYN_JUNDA_FW_NAME	"" 
+#endif
+#ifndef SYN_JIAGUAN_FW_NAME
+#define SYN_JIAGUAN_FW_NAME	"" 
+#endif
+#ifndef SYN_MUDONG_FW_NAME
+#define SYN_MUDONG_FW_NAME	"" 
+#endif
+#ifndef SYN_EACHOPTO_FW_NAME
+#define SYN_EACHOPTO_FW_NAME	"" 
+#endif
+
+
+
+
+
+#ifndef FTC_TPK_FW_NAME
+#define FTC_TPK_FW_NAME		""
+#endif
+#ifndef FTC_TURLY_FW_NAME
+#define FTC_TURLY_FW_NAME	"" 
+#endif
+#ifndef FTC_SUCCESS_FW_NAME
+#define FTC_SUCCESS_FW_NAME	"" 
+#endif
+#ifndef FTC_OFILM_FW_NAME
+#define FTC_OFILM_FW_NAME	"" 
+#endif
+#ifndef FTC_LEAD_FW_NAME
+#define FTC_LEAD_FW_NAME	"" 
+#endif
+#ifndef FTC_WINTEK_FW_NAME
+#define FTC_WINTEK_FW_NAME	"" 
+#endif
+#ifndef FTC_LAIBAO_FW_NAME
+#define FTC_LAIBAO_FW_NAME	"" 
+#endif
+#ifndef FTC_CMI_FW_NAME
+#define FTC_CMI_FW_NAME		"" 
+#endif
+#ifndef FTC_ECW_FW_NAME
+#define FTC_ECW_FW_NAME		"" 
+#endif
+#ifndef FTC_GOWORLD_FW_NAME
+#define FTC_GOWORLD_FW_NAME	"" 
+#endif
+#ifndef FTC_BAOMING_FW_NAME
+#define FTC_BAOMING_FW_NAME	"" 
+#endif
+#ifndef FTC_JUNDA_FW_NAME
+#define FTC_JUNDA_FW_NAME	"" 
+#endif
+#ifndef FTC_JIAGUAN_FW_NAME
+#define FTC_JIAGUAN_FW_NAME	"" 
+#endif
+#ifndef FTC_MUDONG_FW_NAME
+#define FTC_MUDONG_FW_NAME	"" 
+#endif
+#ifndef FTC_EACHOPTO_FW_NAME
+#define FTC_EACHOPTO_FW_NAME	"" 
+#endif
+
+#ifndef FTC_AVC_FW_NAME
+#define FTC_AVC_FW_NAME	"" 
+#endif
+
+#ifndef GTP_SENSOR_ID_1_FW_NAME
+#define GTP_SENSOR_ID_1_FW_NAME		""
+#endif
+#ifndef GTP_SENSOR_ID_2_FW_NAME
+#define GTP_SENSOR_ID_2_FW_NAME		""
+#endif
+#ifndef GTP_SENSOR_ID_3_FW_NAME
+#define GTP_SENSOR_ID_3_FW_NAME		""
+#endif
+#ifndef GTP_SENSOR_ID_4_FW_NAME
+#define GTP_SENSOR_ID_4_FW_NAME		""
+#endif
+#ifndef GTP_SENSOR_ID_5_FW_NAME
+#define GTP_SENSOR_ID_5_FW_NAME		""
+#endif
+#ifndef GTP_SENSOR_ID_6_FW_NAME
+#define GTP_SENSOR_ID_6_FW_NAME		""
+#endif
+
+
+/*
+固件名按照这个顺序排列
+*/
+enum TOUCH_MOUDLE
+{
+	TPK=0,
+	TRULY,
+	SUCCESS,
+	OFILM,
+	LEAD,
+	WINTEK,
+	LAIBAO,
+	CMI,
+	ECW,
+	GOWORLD,
+	BAOMING,
+	JUNDA,
+	JIAGUAN,
+	MUDONG,
+	EACHOPTO,		
+	AVC,	
+	UNKNOW=0xff
+};
+#define SYN_MOUDLE_NUM_MAX 15
+#define FTC_MOUDLE_NUM_MAX 16
+#define GTP_MOUDLE_NUM_MAX 6
+#if 0
+char *syn_fwfile_table[SYN_MOUDLE_NUM_MAX]=
+{
+SYN_TPK_FW_NAME,
+SYN_TURLY_FW_NAME,
+SYN_SUCCESS_FW_NAME,
+SYN_OFILM_FW_NAME,
+SYN_LEAD_FW_NAME,
+SYN_WINTEK_FW_NAME,
+SYN_LAIBAO_FW_NAME,
+SYN_CMI_FW_NAME,
+SYN_ECW_FW_NAME,
+SYN_GOWORLD_FW_NAME,
+SYN_BAOMING_FW_NAME,
+SYN_JUNDA_FW_NAME
+};
+
+char *ftc_fwfile_table[FTC_MOUDLE_NUM_MAX]=
+{
+FTC_TPK_FW_NAME,
+FTC_TURLY_FW_NAME,
+FTC_SUCCESS_FW_NAME,
+FTC_OFILM_FW_NAME,
+FTC_LEAD_FW_NAME,
+FTC_WINTEK_FW_NAME,
+FTC_LAIBAO_FW_NAME,
+FTC_CMI_FW_NAME,
+FTC_ECW_FW_NAME,
+FTC_GOWORLD_FW_NAME,
+FTC_BAOMING_FW_NAME,
+FTC_JUNDA_FW_NAME,
+FTC_JIAGUAN_FW_NAME,
+FTC_MUDONG_FW_NAME
+};
+char *gtp_fwfile_table[GTP_MOUDLE_NUM_MAX]=
+{
+GTP_SENSOR_ID_1_FW_NAME,
+GTP_SENSOR_ID_2_FW_NAME,
+GTP_SENSOR_ID_3_FW_NAME,
+GTP_SENSOR_ID_4_FW_NAME,
+GTP_SENSOR_ID_5_FW_NAME,
+GTP_SENSOR_ID_6_FW_NAME,	
+};
+int touch_moudle;
+#endif
+
+#endif
+

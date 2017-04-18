@@ -1,0 +1,14 @@
+#
+# Created by ZTE_BOOT_JIA_20120803 jia.jia
+#
+
+menu "ZTE FTM"
+
+config ZTE_FTM
+    depends on ARCH_MSM8610
+	bool "ZTE FTM Driver"
+	default n
+	help
+	  Enable support for FTM driver needed on the ZTE platform
+
+endmenu

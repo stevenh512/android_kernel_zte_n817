@@ -1,0 +1,140 @@
+/* Copyright (c) 2013, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+/*
+ * As a general rule, only version-specific property overrides should be placed
+ * inside this file. However, device definitions should be placed inside the
+ * msm8610.dtsi file.
+ */
+/include/ "touch-key-backlight-demi.dtsi"
+
+&soc {
+
+	msm-mmss-noc@fc478000 {
+		mas-mdp-port0 {
+			cell-id = <22>;
+			label = "mas-mdp-port0";
+			qcom,masterp = <2>;
+			qcom,tier = <2>;
+			qcom,hw-sel = "NoC";
+			qcom,perm-mode = "Fixed";
+			qcom,mode = "Fixed";
+			qcom,qport = <0>;
+			qcom,ws = <10000>;
+			qcom,mas-hw-id = <8>;
+			qcom,prio1 = <3>;
+			qcom,prio0 = <3>;
+		};
+	};
+	i2c@f9925000 {
+	
+	    akm09911_compass@0c {
+		    compatible = "akm09911_compass,09911C";
+		    reg = <0x0c>;
+		    interrupt-parent = <&msmgpio>;
+		    //interrupts = <83 0x2>;	
+		    vdd_ana-supply = <&pm8110_l19>;
+		    vcc_i2c-supply = <&pm8110_l14>;
+		    //akm09911_compass,gpio_int = <&msmgpio 83 0x00>;
+		    akm09911_compass,i2c-pull-up = <1>;
+           }; 
+		
+		lis3dh_acc@19 {
+			compatible = "lis3dh_acc,1234";
+			reg = <0x19>;
+			vdd_ana-supply = <&pm8110_l19>;
+			vcc_i2c-supply = <&pm8110_l14>;
+			lis3dh_acc,gpio_int1 = <&msmgpio 0xFF 0x00>;
+			lis3dh_acc,gpio_int2 = <&msmgpio 0xFF 0x00>;			
+			lis3dh_acc,i2c-pull-up = <1>;
+        	}; 
+
+		kxtik@0f {
+			compatible = "kxtik,1013";
+			reg = <0x0f>;
+			interrupt-parent = <&msmgpio>;
+			interrupts = <81 0x1>;
+			vdd_ana-supply = <&pm8110_l19>;
+			vcc_i2c-supply = <&pm8110_l14>;
+			kxtik,gpio_int1 = <&msmgpio 81 0x00>;
+			kxtik,gpio_int2 = <&msmgpio 97 0x00>;			
+			kxtik,i2c-pull-up = <1>;
+
+        	}; 	
+			
+		taos@39 {
+			compatible = "taos,2771";
+			reg = <0x39>;
+			interrupt-parent = <&msmgpio>;
+			interrupts = <80 0x2>;
+			vdd_ana-supply = <&pm8110_l19>;
+			vcc_i2c-supply = <&pm8110_l14>;
+			taos,irq-gpio = <&msmgpio 80 0x00>;
+			taos,i2c-pull-up = <1>;
+        	}; 	
+    };
+
+
+i2c@f9928000 {
+	qcom,camera@3 {
+		cam_vdig-supply = <&pm8110_l14>;
+		cam_vana-supply = <&pm8110_l19>;
+		cam_vio-supply = <&pm8110_l14>;
+		qcom,cam-vreg-name = "cam_vdig", "cam_vana", "cam_vio";
+		qcom,cam-vreg-type = <0 0 0 >;
+		qcom,cam-vreg-min-voltage = <1800000 2850000 1800000>;
+		qcom,cam-vreg-max-voltage = <1800000 2850000 1800000>;
+		qcom,cam-vreg-op-mode = <200000 80000 80000>;
+		
+		gpios = <&msmgpio 13 0>, <&msmgpio 21 0>,<&msmgpio 20 0>,<&msmgpio 82 0>,<&msmgpio 99 0>,<&msmgpio 98 0>;
+		qcom,gpio-reset = <1>;		
+		qcom,gpio-standby = <2>;
+		qcom,gpio-vio = <3>;
+		qcom,gpio-vana = <4>;
+		qcom,gpio-vdig = <5>;
+		qcom,gpio-req-tbl-num = <0 1 2 3 4 5>;
+		qcom,gpio-req-tbl-flags = <1 0 0 2 2 2>;
+		qcom,gpio-req-tbl-label = "CAMIF_MCLK",
+				"CAM_RESET",
+				"CAM_STANDBY",
+				"CAM_VIO",
+				"CAM_VANA_EN",
+				"CAM_VDIG_EN";
+	};
+	qcom,camera@60 {
+		cam_vdig-supply = <&pm8110_l14>;
+		cam_vana-supply = <&pm8110_l19>;
+		cam_vio-supply = <&pm8110_l14>;
+		qcom,cam-vreg-name = "cam_vdig", "cam_vana", "cam_vio";
+		qcom,cam-vreg-type = <0 0 0 >;
+		qcom,cam-vreg-min-voltage = <1800000 2850000 1800000>;
+		qcom,cam-vreg-max-voltage = <1800000 2850000 1800000>;
+		qcom,cam-vreg-op-mode = <200000 80000 80000>;
+		
+		gpios = <&msmgpio 13 0>, <&msmgpio 21 0>,<&msmgpio 20 0>,<&msmgpio 82 0>,<&msmgpio 99 0>,<&msmgpio 98 0>;
+		qcom,gpio-reset = <1>;		
+		qcom,gpio-standby = <2>;
+		qcom,gpio-vio = <3>;
+		qcom,gpio-vana = <4>;
+		qcom,gpio-vdig = <5>;
+		qcom,gpio-req-tbl-num = <0 1 2 3 4 5>;
+		qcom,gpio-req-tbl-flags = <1 0 0 2 2 2>;
+		qcom,gpio-req-tbl-label = "CAMIF_MCLK",
+				"CAM_RESET",
+				"CAM_STANDBY",
+				"CAM_VIO",
+				"CAM_VANA_EN",
+				"CAM_VDIG_EN";
+	};
+};
+
+};

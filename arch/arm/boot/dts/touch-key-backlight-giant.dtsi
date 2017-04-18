@@ -1,0 +1,84 @@
+//for touchscreen and key and keypad-backlight
+
+&soc {
+
+	i2c@f9923000{
+		goodix-touchscreen@14 {
+			compatible = "Goodix-TS";
+			reg = <0x14>;
+			interrupt-parent = <&msmgpio>;
+			interrupts = <1 0x2>;
+			vdd-supply = <&pm8110_l19>;
+			vcc_i2c-supply = <&pm8110_l14>;	
+			goodix,reset-gpio = <&msmgpio 0 0x00>;
+			goodix,irq-gpio = <&msmgpio 1 0x00>;
+			goodix,i2c-pull-up = <1>;
+		};	
+		focatl@3e{
+            compatible = "foctal,ft-ts";
+            reg = <0x3e>;
+            interrupt-parent = <&msmgpio>;
+            interrupts = <1 0x2>;
+			ft,max_x=<480>;
+			ft,max_y=<854>;
+		};		
+	};
+	gen-vkeys {
+		compatible = "zte,gen-vkeys";
+		label = "goodix-touchscreen";
+		zte,disp-maxy_px = <854>;
+		zte,disp-maxy_mm = <990>;//0.1mm
+		zte,disp-maxx_mm = <555>;//0.1mm
+		zte,x1=<100>;
+		zte,x2=<275>;
+		zte,x3=<450>;
+		zte,lcd_offset=<25>;//距离LCD至少2mm 这里再放宽0.5mm
+		zte,y_max_offset=<150>;//默认值LCD下边沿到按键下边沿距离估计取大值做余量
+		zte,dx=<100>;//标准中X范围为5mm+-1mm取中值*2
+		zte,key-codes = <158 102 187>;
+	};
+	gen-vkeys1 {
+		compatible = "zte,gen-vkeys";
+		label = "Fts-touchscreen";
+		zte,disp-maxy_px = <854>;
+		zte,disp-maxy_mm = <990>;//0.1mm
+		zte,disp-maxx_mm = <555>;//0.1mm
+		zte,x1=<100>;
+		zte,x2=<275>;
+		zte,x3=<450>;
+		zte,lcd_offset=<25>;//距离LCD至少2mm 这里再放宽0.5mm
+		zte,y_max_offset=<150>;//默认值LCD下边沿到按键下边沿距离估计取大值做余量
+		zte,dx=<100>;//标准中X范围为5mm+-1mm取中值*2
+		zte,key-codes = <158 102 187>;
+	};	
+	gpio_keys {
+		compatible = "gpio-keys";
+		input-name = "gpio-keys";
+
+		vol_up {
+			label = "volume_up";
+			gpios = <&msmgpio 72 0x1>;
+			linux,input-type = <1>;
+			linux,code = <115>;
+			gpio-key,wakeup;
+			debounce-interval = <15>;
+		};
+		
+		vol_down {
+			label = "volume_down";
+			gpios = <&msmgpio 73 0x1>;
+			linux,input-type = <1>;
+			linux,code = <114>;
+			gpio-key,wakeup;
+			debounce-interval = <15>;
+		};	
+	};
+			
+	leds-gpio {
+		compatible = "gpio-leds";	
+		button-backlight {
+			gpios = <&msmgpio 92 0>;
+		};
+    }; 
+	
+};

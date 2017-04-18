@@ -1,0 +1,119 @@
+/* Copyright (c) 2013, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+/include/ "touch-key-backlight-wellington.dtsi"
+/include/ "dsi-panel-otm8019a-wvga-video.dtsi"
+&soc {
+	i2c@f9925000 {
+			kxtj9@0e {
+			compatible = "kionix,kxtj9";
+			reg = <0x0e>;
+			interrupt-parent = <&msmgpio>;
+			//interrupts = <96 0x2>;
+            vddhold-supply = <&pm8110_l19>;
+			vdd-supply = <&pm8110_l19>;
+			vio-supply = <&pm8110_l14>;
+			kionix,min-interval = <5>;
+			kionix,init-interval = <100>;
+			kionix,axis-map-x = <0>;
+			kionix,axis-map-y = <1>;
+			kionix,axis-map-z = <2>;
+			kionix,g-range =  <2>;
+			kionix,negate-x;
+			kionix,negate-y;
+			//kionix,negate-z;
+			kionix,res-12bit;
+			kionix,gpio-int1 = <&msmgpio 81 0x00>;
+			//kionix,gpio-int2 = <&msmgpio 97 0x00>;
+        	}; 
+    };
+    sound {
+        qcom,audio-routing =
+            "RX_BIAS", "MCLK",
+            "INT_LDO_H", "MCLK",
+            "MIC BIAS External", "Handset Mic",
+            "MIC BIAS Internal2", "Headset Mic",
+            "MIC BIAS External", "Secondary Mic",
+            "AMIC1", "MIC BIAS External",
+            "AMIC2", "MIC BIAS Internal2",
+            "AMIC3", "MIC BIAS External";
+		qcom,mbhc-bias-internal;
+    };    
+};	
+
+&spmi_bus {
+		qcom,pm8110@0 {
+			qcom,leds@a200 {
+				status = "okay";
+				qcom,led_mpp_3 {
+					label = "mpp";
+					linux,name = "wled-backlight";
+					linux,default-trigger = "bkl-trigger";
+					qcom,default-state = "on";
+					qcom,max-current = <40>;
+					qcom,id = <6>;
+					qcom,source-sel = <8>;
+					qcom,mode-ctrl = <0x10>;
+					qcom,pwm-channel = <0>;
+					qcom,pwm-us = <27>;
+					qcom,vin-ctrl = <0x03>;
+					qcom,mode = "pwm";
+				};
+			};
+	
+		};
+};
+
+
+&i2c {
+	qcom,camera@44 {
+
+
+		status = "disable";
+	};
+
+	qcom,camera@45 {
+		compatible = "qcom,ov2680";
+		reg = <0x45>;
+		qcom,slave-id = <0x6c 0x300a 0x2680>;
+		qcom,csiphy-sd-index = <0>;
+		qcom,csid-sd-index = <0>;
+		//qcom,led-flash-src = <&led_flash0>;
+		qcom,mount-angle = <90>;
+		qcom,sensor-name = "ov2680";
+		cam_vdig-supply = <&pm8110_l15>;
+		cam_vana-supply = <&pm8110_l22>;
+		cam_vio-supply = <&pm8110_l15>;
+		qcom,cam-vreg-name = "cam_vdig", "cam_vio", "cam_vana";
+		qcom,cam-vreg-type = <0 0 0>;
+		qcom,cam-vreg-min-voltage = <1800000 1800000 2850000>;
+		qcom,cam-vreg-max-voltage = <1800000 1800000 2850000>;
+		qcom,cam-vreg-op-mode = <200000 200000 80000>;
+		qcom,gpio-no-mux = <0>;
+		gpios = <&msmgpio 13 0>,
+		<&msmgpio 21 0>,
+		<&msmgpio 20 0>;
+		qcom,gpio-reset = <1>;
+		qcom,gpio-standby = <2>;
+		qcom,gpio-req-tbl-num = <0 1 2>;
+		qcom,gpio-req-tbl-flags = <1 0 0>;
+		qcom,gpio-req-tbl-label = "CAMIF_MCLK",
+		"CAM_RESET1",
+		"CAM_STANDBY";
+		qcom,csi-lane-assign = <0xe4>;
+		qcom,csi-lane-mask = <0x3>;
+		qcom,sensor-position = <0>;
+		qcom,sensor-mode = <1>;
+		qcom,cci-master = <0>;
+		status = "ok";
+	};
+};
+

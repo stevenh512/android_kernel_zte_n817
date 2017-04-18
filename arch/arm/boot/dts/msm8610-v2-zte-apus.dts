@@ -1,0 +1,68 @@
+/* Copyright (c) 2013, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+/dts-v1/;
+
+/include/ "msm8610-v2.dtsi"
+/include/ "msm8610-mtp.dtsi"
+/include/ "msm8610-camera-sensor-cdp-mtp.dtsi"
+/include/ "zte-msm8610-apus.dtsi"
+
+/ {
+	model = "ZTE MSM 8610v2 APUS";
+	compatible = "qcom,msm8610-mtp", "qcom,msm8610", "qcom,mtp";
+	qcom,board-id = <100 0>;
+};
+&soc {
+	zte_misc {
+		compatible = "zte-misc";
+		ext_ovp_en {
+			label = "ext_ovp_en";
+			gpios = <&msmgpio 34 0x0>;
+		};
+
+		battery_switch {
+		label = "battery_switch";
+		gpios = <&pm8110_gpios 1 0x0>;
+		};
+	};
+	zte-hall {
+		compatible = "zte-hall";
+		hall_en{
+			label = "hall_en";
+			gpios = <&msmgpio 76 0x0>;
+		};
+	};
+};
+&pm8110_chg {
+	qcom,ibatmax-ma = <1800>;
+	qcom,ibatsafe-ma = <1800>;
+	qcom,battery-switch-support;
+	qcom,ext-ovp-present;
+	qcom,ibatterm-ma = <160>;
+};
+
+&pm8110_bms {
+	qcom,chg-term-ua = <160000>;
+};
+
+
+&spmi_bus {
+	qcom,pm8110@1 {
+		qcom,vibrator@c000 {
+			status = "okay";
+			qcom,vib-timeout-ms = <15000>;
+			qcom,vib-vtg-level-mV = <3000>;/*p821a64 3v*/
+		};
+	};
+};
+

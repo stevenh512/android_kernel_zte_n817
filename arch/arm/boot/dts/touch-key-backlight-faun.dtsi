@@ -1,0 +1,59 @@
+//for touchscreen and key and keypad-backlight
+
+&soc {
+
+	i2c@f9923000{
+		syna-touchscreen@22 {
+			compatible = "synaptics,syna-ts";
+			reg = <0x22>;
+			interrupt-parent = <&msmgpio>;
+			interrupts = <1 0x2>;
+			synaptics,reset-gpio = <&msmgpio 0 0x00>;
+			synaptics,irq-gpio = <&msmgpio 1 0x00>;
+			synaptics,max_y = <0>;
+			synaptics,panel-coords = <0  0 760 1424>;
+			synaptics,display-coords = <0 0 720 1280>;
+			synaptics,i2c-pull-up = <1>;
+		};
+		goodix-touchscreen@14 {
+			compatible = "Goodix-TS";
+			reg = <0x14>;
+			interrupt-parent = <&msmgpio>;
+			interrupts = <1 0x2>;
+			goodix,reset-gpio = <&msmgpio 0 0x00>;
+			goodix,irq-gpio = <&msmgpio 1 0x00>;
+			goodix,i2c-pull-up = <1>;
+		};		
+	};
+
+	gpio_keys {
+		compatible = "gpio-keys";
+		input-name = "gpio-keys";
+
+		vol_up {
+			label = "volume_up";
+			gpios = <&msmgpio 72 0x1>;
+			linux,input-type = <1>;
+			linux,code = <115>;
+			gpio-key,wakeup;
+			debounce-interval = <15>;
+		};
+		
+		vol_down {
+			label = "volume_down";
+			gpios = <&msmgpio 73 0x1>;
+			linux,input-type = <1>;
+			linux,code = <114>;
+			gpio-key,wakeup;
+			debounce-interval = <15>;
+		};	
+	};
+			
+	leds-gpio {
+		compatible = "gpio-leds";	
+		button-backlight {
+			gpios = <&msmgpio 92 0>;
+		};
+    }; 
+	
+};

@@ -1,0 +1,19 @@
+#
+# external IRDA devices
+#
+
+menuconfig EXTERNAL_IRDA
+	bool "external IRDA devices support"
+	depends on HAS_IOMEM
+	help
+	  This supports external IRDA devices.
+
+if EXTERNAL_IRDA
+
+config ICE40_IRDA
+	tristate "ICE40 IRDA device driver support"
+	depends on EXTERNAL_IRDA && SPI
+	help
+	  This supports ICE40 SPI protocol drivers.
+
+endif # EXTERNAL_IRDA

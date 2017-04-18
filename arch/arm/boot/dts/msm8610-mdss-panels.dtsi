@@ -1,0 +1,34 @@
+/* Copyright (c) 2013, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+/include/ "dsi-panel-truly-wvga-video.dtsi"
+/include/ "dsi-panel-truly-wvga-cmd.dtsi"
+/include/ "dsi-panel-nt35590-720p-video.dtsi"
+/include/ "dsi-panel-otm8018b-fwvga-video.dtsi"
+/include/ "dsi-panel-hx8379a-wvga-video.dtsi"
+/include/ "dsi-panel-hx8389b-qhd-video.dtsi"
+/include/ "dsi-panel-zte-tm-otm8018-wvga-video.dtsi"
+/include/ "dsi-panel-zte-hsd-nt35512-wvga-video.dtsi"
+/include/ "dsi-panel-zte-lead-hsd-otm9608-qhd-video.dtsi"
+/include/ "dsi-panel-zte-yushun-lg-nt35516-qhd-video.dtsi"
+/include/ "dsi-panel-zte-cpt-hx8357-hvga-video.dtsi"
+/include/ "dsi-panel-zte-chuangshi-hx8357-hvga-video.dtsi"
+/include/ "dsi-panel-zte-lead-cpt-hx8357-hvga-video.dtsi"
+/include/ "dsi-panel-zte-lead-chaosheng-hx8357d-hvga-video.dtsi"
+/include/ "dsi-panel-zte-tm-hx8389b-qhd-video.dtsi"
+/include/ "dsi-panel-zte-tc358764xbg-wsvga-video.dtsi"
+/include/ "dsi-panel-hx8394a-tm-6p0-720p-video-500.dtsi"
+/include/ "dsi-panel-lead_orise1283a-cpt-6p0-720p-video.dtsi"
+/include/ "dsi-panel-zte-yushun-boe-hx8379c-wvga-video.dtsi"
+/include/ "dsi-panel-zte-lead-cpt-ili9806e-wvga-video.dtsi"
+/include/ "dsi-panel-zte-boe-boe-otm8019a-fwvga-4p5-video.dtsi"
+/include/ "dsi-panel-zte-yushun-cpt-hx8379a-fwvga-4p5-video.dtsi"

@@ -1,0 +1,11 @@
+#
+# MSTAR Touchscreen driver
+#
+config TOUCHSCREEN_MSG22XX
+        tristate "M-STAR Touch MSG22xx"
+        depends on TOUCHSCREEN_MSTAR
+        default y
+        help
+          Say Y here if you have a M-STAR MSG22xx touchscreen.
+
+          If unsure, say N.
