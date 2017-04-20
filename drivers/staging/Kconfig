@@ -132,6 +132,8 @@ source "drivers/staging/ramster/Kconfig"
 
 source "drivers/staging/ozwpan/Kconfig"
 
+source "drivers/staging/prima/Kconfig"
+
 #
 # Added by ZTE_BOOT_JIA_20130107 jia.jia
 #
